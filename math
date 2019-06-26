@@ -34,7 +34,7 @@
 		{
 			echo eval($str);
 		}
-		catch ($e)
+		catch (\Exception $e)
 		{
 			print_r($e);
 		}
