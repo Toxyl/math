@@ -1,0 +1,34 @@
+#!/usr/bin/php
+<?php 
+	function help()
+	{
+		$h = "Usage:  math\n";	
+		$h = "Performs calculations provided as first argument or via stdin.\n";
+		$h = "\n";
+		$h = "Usage:   math [expression]\n";
+		$h = "         echo [expression] | math\n";
+		$h = "Example: math \"2 + 3\"\n";
+		$h = "         echo \"2 + 3\" | math\n";
+		return $h;
+	}
+
+	stream_set_blocking(STDIN, 0);
+	$in = fgets(STDIN);
+	if ($in == '')
+		$args = $_SERVER['argv'];
+	else
+		$args = ['', $in];
+
+	stream_set_blocking(STDIN, 1);
+
+	if (count($args) < 1)
+	{
+		echo help(); 
+	}
+	else
+	{
+		array_shift($args);
+		$str = "return " . array_shift($args) . ";";
+		echo eval($str);
+	}
+?>
