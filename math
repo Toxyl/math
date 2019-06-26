@@ -28,7 +28,15 @@
 	else
 	{
 		array_shift($args);
-		$str = "return " . trim(array_shift($args)) . ";";
-		echo eval($str);
+		$calclation = trim(array_shift($args));
+		$str = "return $calculation;";
+		try 
+		{
+			echo eval($str);
+		}
+		catch ($e)
+		{
+			print_r($e);
+		}
 	}
 ?>
