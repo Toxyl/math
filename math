@@ -28,7 +28,7 @@
 	else
 	{
 		array_shift($args);
-		$str = "return " . array_shift($args) . ";";
+		$str = "return " . trim(array_shift($args)) . ";";
 		echo eval($str);
 	}
 ?>
