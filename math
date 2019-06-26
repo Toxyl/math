@@ -28,7 +28,7 @@
 	else
 	{
 		array_shift($args);
-		$calclation = trim(array_shift($args));
+		$calculation = trim(array_shift($args));
 		$str = "return $calculation;";
 		try 
 		{
